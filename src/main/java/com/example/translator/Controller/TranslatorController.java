@@ -1,11 +1,10 @@
 package com.example.translator.Controller;
 
+import com.example.translator.DTO.TranslationDTO;
 import com.example.translator.Service.TranslatorService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/translate")
@@ -17,10 +16,8 @@ public class TranslatorController {
     public TranslatorController(TranslatorService translatorService){
         this.translatorService = translatorService;
     }
-    @GetMapping("/{source}/{target}/{parse}")
-    public String translate(@PathVariable(value="source") String source,
-                            @PathVariable(value="target") String target,
-                            @PathVariable(value="parse") String parse){
-        return translatorService.translate(source,target,parse);
+    @PostMapping
+    public TranslationDTO translate(@RequestBody @Valid TranslationDTO request){
+        return translatorService.translate(request);
     }
 }
