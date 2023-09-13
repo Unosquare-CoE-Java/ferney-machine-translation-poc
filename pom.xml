@@ -39,10 +39,23 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 		<dependency>
+			<artifactId>aws-java-sdk-core</artifactId>
 			<groupId>com.amazonaws</groupId>
-			<artifactId>aws-java-sdk</artifactId>
 			<version>1.12.547</version>
+		</dependency>
+
+		<dependency>
+			<artifactId>aws-java-sdk-translate</artifactId>
+			<groupId>com.amazonaws</groupId>
+			<version>1.12.547</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
 		</dependency>
 	</dependencies>
 
